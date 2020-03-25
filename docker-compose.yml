@@ -1,0 +1,18 @@
+version: '2'
+services:
+  numerweb:
+    build: ./numerweb
+    ports:
+      - '3000:3000'
+    depends_on:
+      - server
+  server:
+    build: ./server
+    ports:
+      - '8000:8000'
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'
